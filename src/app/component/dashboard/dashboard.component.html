@@ -30,8 +30,12 @@
         </div>
         <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-evenly center">
             <div>
-                <img src="../../../assets/Images/profile.png">
+                <img mat-button [matMenuTriggerFor]="menu" src="../../../assets/Images/profile.png">
             </div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Setting</button>
+                <button mat-menu-item (click)="logOut()" routerLink="/registration">Log Out</button>
+            </mat-menu>
 
             <div>
                 <img src="../../../assets/Images/cart.png">
@@ -40,7 +44,7 @@
     </mat-toolbar>
 
 
-    <div style="border: solid red;">
+    <div>
         <router-outlet></router-outlet>
     </div>
 </div>

@@ -11,6 +11,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 
@@ -47,7 +49,8 @@ import { GetAllBooksComponent } from './component/get-all-books/get-all-books.co
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
