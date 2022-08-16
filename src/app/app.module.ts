@@ -10,6 +10,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material/card';
+
 
 
 
@@ -22,12 +24,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { GetAllBooksComponent } from './component/get-all-books/get-all-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     DashboardComponent,
+    GetAllBooksComponent
     
   ],
   imports: [
@@ -42,7 +46,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

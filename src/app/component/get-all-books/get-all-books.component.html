@@ -1,1 +1,15 @@
-<p>get-all-books works!</p>
+
+<div class="main" fxLayoutGap="10">
+
+    <mat-card fxLayout="column" fxFlex="20" *ngFor="let book of books" class="card">
+        <div fxLayoutAlign="space-around center">
+            <!-- <img src="../../../assets/Images/Book.png"> -->
+            <img src={{book.bookImage}} alt="No Photo">
+        </div>
+        <div fxLayout="column">
+            <b>{{book.bookName}}</b>
+            <p> by {{book.author}}</p>
+            <b>Rs {{book.price}}</b>
+        </div>
+    </mat-card>
+</div>
