@@ -1,0 +1,47 @@
+<mat-toolbar [ngStyle]="{'background-color':'#A03037'}">
+    <div fxFlex="80" fxLayoutAlign="space-around center">
+
+        <div fxFlex="13" fxLayoutAlign="space-between center">
+            <img src="../../../assets/Images/education.png">
+            <span class="text">
+                Bookstore
+            </span>
+        </div>
+
+
+        <div class="searchdiv" fxFlex="50">
+            <!-- <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="100">
+                <button  fxFlex="5" mat-button class="search-button" style="background-color: white;">
+                    <mat-icon id="search" matTooltip="Search">search</mat-icon>
+                </button>
+
+                <input fxFlex="95" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
+                    autocomplete="off" type="text"  />
+
+
+            </mat-form-field> -->
+            <div class="searchdiv" fxLayoutAlign="space-between center">
+                <mat-form-field appearance="outline" fxHide.xs [style.fontSize.px]="2" class="search" fxFlex="100">
+                    <button mat-icon-button class="search-button">
+                        <mat-icon id="search" matTooltip="Search">search</mat-icon>
+                    </button>
+    
+                    <input fxFlex="92" matInput placeholder="Search"
+                        [style.fontSize.px]="16" class="search-window" autocomplete="off" type="text" />
+    
+    
+                </mat-form-field>
+            </div>
+            
+        </div>
+    </div>
+    <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-evenly center">
+        <div>
+            <img src="../../../assets/Images/profile.png">
+        </div>
+
+        <div>
+            <img src="../../../assets/Images/cart.png">
+        </div>
+    </div>
+</mat-toolbar>
