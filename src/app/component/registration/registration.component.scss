@@ -1,0 +1,113 @@
+.img{
+    margin-top: 10%;
+    margin-bottom: 10%;
+    // margin: 10%;
+    // border: solid 1px red;
+
+}
+.leftdiv{
+    background-color:white;
+    border-bottom-left-radius: 2vh;
+    border-top-left-radius: 2vh;
+    height: 75%;
+
+}
+
+.main{
+    background-color: rgb(161, 161, 161);
+}
+
+.text{
+    font-size:large;
+    margin-bottom: 15%;
+}
+
+.rightdiv{
+    background-color:white;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    border-radius: 2vh;
+    height: 85%;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2),
+}
+
+.button{
+    font-size:x-large;
+}
+
+.label{
+    font-size:smaller;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+
+
+
+
+// OR text in login
+
+h1 {
+    overflow: hidden;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  
+  h1:before,
+  h1:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+  
+  h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+  h1:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
+    //  Indictor line registration ///////////////////////////////////////////
+
+
+  .uline1 {
+    overflow: hidden;
+    text-align: start;
+    background-color: #A03037;
+    content: "";
+    display: inline-block;
+    height: 5px;
+    position: relative;
+    width: 15%;
+    margin-left: 63%;
+  }
+
+  //  Indictor line login ///////////////////////////////////////////
+
+  .uline2 {
+    overflow: hidden;
+    text-align: start;
+    background-color: #A03037;
+    content: "";
+    display: inline-block;
+    height: 5px;
+    position: relative;
+    width: 15%;
+    margin-left: 20%;
+  }
+
+  // .facebook{
+  //   background-color: #4266B2;
+  // }
