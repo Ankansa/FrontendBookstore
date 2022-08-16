@@ -1,0 +1,112 @@
+<div class="main" fxFill fxLayout="row" fxLayoutAlign="center center">
+
+
+
+
+    <div class="leftdiv" fxFlex="25" fxLayout="column" fxLayoutAlign="center center">
+        <div fxLayoutAlign="center center">
+            <img fxFlex="80" class="img" src="../../../assets/Images/bookstore.png">
+        </div>
+        <div class="text">
+            <b>ONLINE BOOK SHOPPING </b>
+        </div>
+    </div>
+
+
+
+    <div class="rightdiv" fxFlex="35">
+        <div fxLayout="row" fxLayoutAlign="space-evenly center">
+            <button (click)="view()" class="button" mat-button>LOGIN</button>
+            <button (click)="view2()" class="button" mat-button>SIGNUP</button>
+        </div>
+        <form [formGroup]="registerForm" class="signupDiv" *ngIf="changeView==false" (ngSubmit)="registration()">
+            <h2 class="uline1"></h2>
+
+            <div fxLayout="column">
+                <mat-label class="label">Full Name</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName="FullName">
+                    <mat-error>Please enter Full Name</mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout="column">
+                <mat-label class="label">Email Id</mat-label>
+                <mat-form-field appearance="outline">
+                    <input type="email" matInput formControlName="Email">
+                    <mat-error>Please enter email</mat-error>
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout="column">
+                <mat-label class="label">Password</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <mat-error>Please enter password</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+
+            <div fxLayout="column">
+                <mat-label class="label">Mobile Number</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput formControlName="mobileNumber">
+                    <mat-error>Please enter Mobile Number</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button class="fullWidth" type="submit" mat-raised-button
+                    [ngStyle]="{'background-color':'#A03037'}">Signup</button>
+            </div>
+
+        </form>
+
+        <!-- Login -->
+        <form [formGroup]="loginForm" class="loginDiv" *ngIf="changeView==true">
+            <h2 class="uline2"></h2>
+            <div fxLayout="column">
+                <mat-label class="label">Email Id</mat-label>
+                <mat-form-field appearance="outline">
+                    <input type="email" matInput formControlName="Email">
+                    <mat-error>Please enter email</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div fxLayout="column">
+                <mat-label class="label">Password</mat-label>
+                <mat-form-field appearance="outline">
+                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <mat-error>Please enter Password</mat-error>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button class="fullWidth" (click)="login()" mat-raised-button
+                    [ngStyle]="{'background-color':'#A03037'}">Login</button>
+            </div>
+
+            <div>
+                <h1>OR</h1>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center" >
+                <div fxFlex="49">
+                    <button class="fullWidth" mat-raised-button color="primary">Facebook</button>
+                </div>
+                <div fxFlex="49">
+                    <button class="fullWidth" mat-raised-button>Google</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
