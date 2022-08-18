@@ -1,15 +1,22 @@
+<div fxLayout="column">
+    <div fxLayoutGap="5" fxLayout="row" fxLayoutAlign="start center" class="countDiv">
+        <h2>Books</h2> <h5>({{totalBooks}}) items</h5>
+    </div>
+    <div class="main" fxLayoutGap="10">
+        <mat-card fxFlex="20" *ngFor="let book of books" class="card">
 
-<div class="main" fxLayoutGap="10">
-
-    <mat-card fxLayout="column" fxFlex="20" *ngFor="let book of books" class="card">
-        <div fxLayoutAlign="space-around center">
-            <!-- <img src="../../../assets/Images/Book.png"> -->
-            <img src={{book.bookImage}} alt="No Photo Available">
-        </div>
-        <div fxLayout="column">
-            <b>{{book.bookName}}</b>
-            <p> by {{book.author}}</p>
-            <b>Rs. {{book.price}}</b>
-        </div>
-    </mat-card>
+            <div fxLayout="column" (click)="bookDetails(book)" routerLink="/dashboard/bookaction">
+                <div fxLayoutAlign="space-around center">
+                    <!-- <img src="../../../assets/Images/Book.png"> -->
+                    <img src={{book.bookImage}} alt="No Photo Available">
+                </div>
+                <div fxLayout="column">
+                    <b>{{book.bookName}}</b>
+                    <p class="fontColorgray"> by {{book.author}}</p>
+                    <!-- <b>Rs. {{book.price}}</b> -->
+                    <p><b> Rs. {{book.discountPrice}} </b><sup><s class="fontColorgray">Rs. {{book.price}}</s></sup></p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
 </div>
