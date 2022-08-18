@@ -1,0 +1,61 @@
+<div class="main" fxLayout="row" fxLayoutAlign="center start">
+    <div fxFlex="20" class="leftdiv">
+        <div class="bookImage" fxLayoutAlign="space-around center">
+            <img class="img" src={{bookDetails.bookImage}} alt="No Photo Available">
+        </div>
+
+
+
+        <div class="userAction" fxLayoutAlign="space-between center">
+            <div class="addCart" fxFlex="49">
+                <button class="fullWidth" fxFlex="100" mat-raised-button
+                    [ngStyle]="{'background-color':'#A03037', 'color':'#FFFFFF'}">Add to cart</button>
+            </div>
+            <div class="Wishlist" fxFlex="49">
+                <button class="fullWidth" fxFlex="100" mat-raised-button
+                    [ngStyle]="{'background-color':'#333333', 'color':'#FFFFFF'}">Wishlist</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div fxLayout="column" fxFlex="40" class="rightdiv">
+        <div>
+            <h2>{{bookDetails.bookName}}</h2>
+            <p [ngStyle]="{'color':'#878787'}"> by {{bookDetails.author}}</p>
+            <p><b> Rs. {{bookDetails.discountPrice}} </b><sup><s [ngStyle]="{'color':'#878787'}">Rs.
+                        {{bookDetails.price}}</s></sup></p>
+        </div>
+        <div class="bookDetails">
+            <p [ngStyle]="{'color':'#878787'}">Book Details</p>
+            <p class="description">{{bookDetails.description}}</p>
+        </div>
+        <div class="Feedback">
+            <p>Customer Feedback</p>
+            <div class="reviewField" [ngStyle]="{'background-color':'#F5F5F5'}">
+                <div class="rating">
+                    <p class="description"><b>Overall rating </b></p>
+                    rating star Icons
+                </div>
+
+                <div class="reviewBox" fxLayout="column" fxLayoutAlign="end end">
+                    <textarea [ngStyle]="{'background-color':'#FFFFFF'}" matInput
+                        placeholder="Write your review"></textarea>
+                    <button class="reviewSubmitButton" mat-raised-button color="primary">Submit</button>
+                </div>
+
+            </div>
+
+            <div>
+                <p>All reviews shown hear</p>
+                <p>All reviews shown hear</p>
+                <p>All reviews shown hear</p>
+                <p>All reviews shown hear</p>
+                <p>All reviews shown hear</p>
+            </div>
+        </div>
+
+    </div>
+</div>
