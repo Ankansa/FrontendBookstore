@@ -8,7 +8,8 @@
             <div fxLayout="column" (click)="bookDetails(book)" routerLink="/dashboard/bookaction">
                 <div fxLayoutAlign="space-around center">
                     <!-- <img src="../../../assets/Images/Book.png"> -->
-                    <img src={{book.bookImage}} alt="No Photo Available">
+                    <!-- <img src={{book.bookImage}} alt="No Photo Available" src='../../../assets/Images/dummy.png'> -->
+                    <img src={{book.bookImage}} onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';" alt="add alternative text here">
                 </div>
                 <div fxLayout="column">
                     <b>{{book.bookName}}</b>
