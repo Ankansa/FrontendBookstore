@@ -13,6 +13,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -32,6 +34,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GetAllBooksComponent } from './component/get-all-books/get-all-books.component';
 import { BookActionComponent } from './component/bookAction/book-action/book-action.component';
 import { CartViewComponent } from './component/cart-view/cart-view.component';
+import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { CartViewComponent } from './component/cart-view/cart-view.component';
     DashboardComponent,
     GetAllBooksComponent,
     BookActionComponent,
-    CartViewComponent
+    CartViewComponent,
+    PlacedOrderComponent
+    
     
   ],
   imports: [
@@ -58,7 +63,8 @@ import { CartViewComponent } from './component/cart-view/cart-view.component';
     MatToolbarModule,
     MatCardModule,
     MatMenuModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

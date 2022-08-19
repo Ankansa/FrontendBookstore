@@ -4,6 +4,7 @@ import { BookActionComponent } from './component/bookAction/book-action/book-act
 import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GetAllBooksComponent } from './component/get-all-books/get-all-books.component';
+import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
     children: [
       { path: 'books', component: GetAllBooksComponent },
       { path: 'bookaction', component: BookActionComponent },
-      { path: 'cart', component: CartViewComponent }
+      { path: 'cart', component: CartViewComponent },
+      { path: 'order_placed', component: PlacedOrderComponent }
     ]
   }
 ];
