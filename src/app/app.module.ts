@@ -35,6 +35,7 @@ import { GetAllBooksComponent } from './component/get-all-books/get-all-books.co
 import { BookActionComponent } from './component/bookAction/book-action/book-action.component';
 import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
+import { WishListComponent } from './component/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { PlacedOrderComponent } from './component/placed-order/placed-order.comp
     GetAllBooksComponent,
     BookActionComponent,
     CartViewComponent,
-    PlacedOrderComponent
+    PlacedOrderComponent,
+    WishListComponent
     
     
   ],
