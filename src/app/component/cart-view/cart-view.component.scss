@@ -1,0 +1,148 @@
+.InsideMainDiv {
+
+    margin-top: 3%;
+}
+
+.titleText {
+    font-size: 18px;
+    margin-bottom: 5%;
+}
+.loopdiv{
+    margin-bottom: 5%;
+}
+
+.cartDetail {
+    border: 1px solid #707070;
+    padding: 3% 5%;
+}
+
+.bookPic {
+    width: 20%;
+}
+
+.pic {
+    width: 60%;
+    height: 80%;
+}
+
+// .bookDetails{
+//     margin-left: 3%;
+// }
+
+.title {
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.author {
+    font-size: 10px;
+    color: #9D9D9D;
+
+}
+
+.price {
+    font-size: 15px;
+}
+
+.mainprice {
+    font-size: 9px;
+    color: #9D9D9D;
+}
+
+//quantity
+
+.quantity{
+    // border: 1px solid palevioletred;
+    position: relative;
+    left: 10px;
+
+}
+.negativebutton{
+    background-color: white; 
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+.negative{
+    color: lightgrey;
+    position: relative;
+    top: -10px;
+
+}
+.bookquantity{
+    font-size: 15px;
+    border: 1px solid whitesmoke;
+    // height: 25px;
+    // width: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+    width: 40px;
+    height: 23px;
+
+}
+.positivebutton{
+    background-color: white; 
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+
+}
+.positive{
+    color: black;
+    position: relative;
+    top: -10px;
+
+}
+.remove{
+    margin-left: 15px;
+    font-size: 15px;
+    font-family: Lato;
+    cursor: pointer;
+
+}
+
+
+
+
+//Address
+
+.borderArea{
+    margin-top: 3%;
+    border: 1px solid #707070;
+    padding: 3% 5%;
+}
+
+.newAdress {
+
+    border: 1px solid #A03037;
+    border-radius: 2px;
+    top: 398px;
+    left: 767px;
+    width: 150px;
+    height: 35px;
+
+}
+
+.Box {
+    top: 475px;
+    left: 229px;
+    width: 251px;
+    height: 45px;
+}
+
+.AddressArea {
+    margin-top: 3%;
+}
+
+mat-radio-button{
+    font-size: 20px;
+}
+
+.editButton{
+    color: #A03037;
+    font-size: 12px;
+}
+
+.AddressField{
+    margin-bottom: 3%;
+}

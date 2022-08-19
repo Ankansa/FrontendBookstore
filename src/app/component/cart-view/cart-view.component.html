@@ -1,0 +1,144 @@
+<div class="main" fxLayoutAlign="center center">
+    <div fxFlex="60" class="InsideMainDiv">
+        <div fxLayout="row">
+            <P routerLink="/dashboard/books">Home /</P>
+            <p> My cart</p>
+        </div>
+        <!-- Cart books -->
+
+        <div class="cartDetail">
+            <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                    <b>My Cart ({{bookcount}})</b>
+                </div>
+                <div class="selectedAddress">
+                    Address dropdown menu
+                </div>
+            </div>
+            <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
+                <div class="bookPic" fxLayoutAlign="start center">
+                    <img class="pic" src={{book.bookImage}}>
+                </div>
+                <div class="bookDetails">
+                    <p class="title">{{book.bookName}}</p>
+                    <p class="author">by {{book.author}}</p>
+                    <p class="price"><b> Rs. {{book.discountPrice}} </b><sup><s class="mainprice">Rs.
+                                {{book.price}}</s></sup></p>
+                    <div>
+                        <div class="quantity" fxLayout="row" fxLayoutAlign="space-evenly center">
+                            <button mat-mini-fab class="negativebutton">
+
+                                <span class="negative"> - </span>
+                            </button>
+                            <span class="bookquantity"> {{book.quantity}} </span>
+                            <button mat-mini-fab class="positivebutton">
+
+                                <span class="positive">+</span>
+                            </button>
+                            <span class="remove">Remove</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div fxLayoutAlign="end end" *ngIf="addressDetails==false">
+                <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button
+                    color="primary">Submit</button>
+            </div>
+        </div>
+
+
+        <!-- Address area -->
+
+        <div class="borderArea" *ngIf="addressDetails==false">
+            Address Details
+        </div>
+
+
+
+
+        <div class="borderArea" *ngIf="addressDetails==true">
+            <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                    <b>Customer Details</b>
+                </div>
+                <div class="addAddress">
+                    <button class="newAdress">Add New Address</button>
+                </div>
+            </div>
+
+            <div fxLayout="row" fxLayoutGap="15">
+                <div class="name" fxLayout="column">
+                    <label>Full Name</label>
+                    <input class="Box">
+                </div>
+                <div class="mobile" fxLayout="column">
+                    <label>Mobile Number</label>
+                    <input class="Box">
+                </div>
+            </div>
+            <div class="AddressArea">
+                <mat-radio-button><b> Work</b></mat-radio-button>
+                <button class="editButton" mat-button>Edit</button>
+                <div class="AddressField" fxLayout="column">
+                    <b>Address</b>
+                    <textarea></textarea>
+                </div>
+                <div fxLayout="row" fxLayoutGap="15">
+                    <div class="name" fxLayout="column">
+                        <label>city/town</label>
+                        <input class="Box">
+                    </div>
+                    <div class="mobile" fxLayout="column">
+                        <label>State</label>
+                        <input class="Box">
+                    </div>
+                </div>
+                <div class="AddressArea">
+                    <mat-radio-button><b> Home</b></mat-radio-button>
+                    <button class="editButton" mat-button>Edit</button>
+                    <div class="AddressField" fxLayout="column">
+                        <b>Address</b>
+                        <textarea></textarea>
+                    </div>
+                </div>
+                <div fxLayoutAlign="end end" *ngIf="OrderSummery==false">
+                    <button class="reviewSubmitButton" (click)="OrderSummeryView()" mat-raised-button
+                        color="primary">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summery -->
+
+        <div class="borderArea" *ngIf="OrderSummery==false">
+            Order summery
+        </div>
+
+
+
+
+        <div class="borderArea" *ngIf="OrderSummery==true">
+            <div class="titleText">
+
+                <b>Order summery</b>
+
+            </div>
+            <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
+                <div class="bookPic" fxLayoutAlign="start center">
+                    <img class="pic" src={{book.bookImage}}>
+                </div>
+                <div class="bookDetails">
+                    <p class="title">{{book.bookName}}</p>
+                    <p class="author">by {{book.author}}</p>
+                    <p class="price"><b> Rs. {{book.discountPrice}} </b><sup><s class="mainprice">Rs.
+                                {{book.price}}</s></sup></p>
+
+                </div>
+            </div>
+            <div fxLayoutAlign="end end">
+                <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button
+                    color="primary">CHECKOUT</button>
+            </div>
+        </div>
+
+    </div>
