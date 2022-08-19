@@ -33,6 +33,7 @@
                 <button mat-button><img mat-button [matMenuTriggerFor]="menu" src="../../../assets/Images/profile.png"></button>
             </div>
             <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/dashboard/wishlist">Wishlist</button>
                 <button mat-menu-item>Setting</button>
                 <button mat-menu-item (click)="logOut()" routerLink="/registration">Log Out</button>
             </mat-menu>
