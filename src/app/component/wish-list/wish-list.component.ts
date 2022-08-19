@@ -28,4 +28,12 @@ export class WishListComponent implements OnInit {
       console.log(" whishlist books are :",this.Wishlist)
     })
   }
+
+  removeBook(bookID:any){
+    console.log("Remove book from wishlist called")
+    this.wishlistService.removeBook(bookID).subscribe((responce:any)=>{
+      console.log("Responce from remove from wishlist api", responce)
+    })
+
+  }
 }

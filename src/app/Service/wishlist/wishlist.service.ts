@@ -35,4 +35,15 @@ export class WishlistService {
     }
     return this.httpService.getService('wishlist/',true,httpOptions)
   }
+
+  removeBook(bookID:any){
+    console.log("The token is",this.token)
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': "bearer " + this.token,
+      })
+    }
+    return this.httpService.putService('wishlist/'+bookID,null,true,httpOptions)
+  }
 }

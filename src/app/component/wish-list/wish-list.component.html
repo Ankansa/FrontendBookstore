@@ -28,7 +28,7 @@
                                     class="mainprice">Rs.{{book.price}}</s></sup></p>
                     </div>
                     <div>
-                        <img class="remove" src="../../../assets/Images/delete_forever.png">
+                        <img (click)="removeBook(book.productId)" class="remove" src="../../../assets/Images/delete_forever.png">
                     </div>
                 </div>
             </div>
