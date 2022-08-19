@@ -40,6 +40,8 @@ export class RegistrationComponent implements OnInit {
       Email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+
+    
   }
 
   view() {

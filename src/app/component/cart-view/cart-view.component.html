@@ -1,7 +1,7 @@
 <div class="main" fxLayoutAlign="center center">
     <div fxFlex="60" class="InsideMainDiv">
         <div fxLayout="row">
-            <P routerLink="/dashboard/books">Home /</P>
+            <P class="home" routerLink="/dashboard/books">Home /</P>
             <p> My cart</p>
         </div>
         <!-- Cart books -->
@@ -11,8 +11,16 @@
                 <div>
                     <b>My Cart ({{bookcount}})</b>
                 </div>
-                <div class="selectedAddress">
-                    Address dropdown menu
+                <div class="selectedAddress"  fxLayoutGap="1" fxLayout="column" fxLayoutAlign="center center" >
+
+                    <!-- <mat-form-field appearance="fill"> -->
+                        <p class="remove" >Select your address</p>
+                        <select disableRipple >
+                            <option value="1">Address 1</option>
+                            <option value="2">Address 2</option>
+                        </select>
+                    <!-- </mat-form-field> -->
+
                 </div>
             </div>
             <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
@@ -35,7 +43,7 @@
 
                                 <span class="positive">+</span>
                             </button>
-                            <span class="remove">Remove</span>
+                            <span class="remove" (click)="removeAllBook(book.productId)">Remove</span>
                         </div>
                     </div>
                 </div>
@@ -62,50 +70,58 @@
                     <b>Customer Details</b>
                 </div>
                 <div class="addAddress">
-                    <button class="newAdress">Add New Address</button>
+                    <button (click)="addAddress()" class="newAdress">Add New Address</button>
                 </div>
             </div>
-
-            <div fxLayout="row" fxLayoutGap="15">
-                <div class="name" fxLayout="column">
-                    <label>Full Name</label>
-                    <input class="Box">
-                </div>
-                <div class="mobile" fxLayout="column">
-                    <label>Mobile Number</label>
-                    <input class="Box">
-                </div>
-            </div>
-            <div class="AddressArea">
-                <mat-radio-button><b> Work</b></mat-radio-button>
-                <button class="editButton" mat-button>Edit</button>
-                <div class="AddressField" fxLayout="column">
-                    <b>Address</b>
-                    <textarea></textarea>
-                </div>
+            <form [formGroup]="addressForm">
                 <div fxLayout="row" fxLayoutGap="15">
                     <div class="name" fxLayout="column">
-                        <label>city/town</label>
-                        <input class="Box">
+                        <label>Full Name</label>
+                        <input class="Box" formControlName="Name">
                     </div>
                     <div class="mobile" fxLayout="column">
-                        <label>State</label>
-                        <input class="Box">
+                        <label>Mobile Number</label>
+                        <input class="Box" formControlName="PhoneNumber">
                     </div>
                 </div>
                 <div class="AddressArea">
-                    <mat-radio-button><b> Home</b></mat-radio-button>
+
+
+
+
+
+                    <mat-radio-button><b> Work</b></mat-radio-button>
                     <button class="editButton" mat-button>Edit</button>
+
                     <div class="AddressField" fxLayout="column">
                         <b>Address</b>
-                        <textarea></textarea>
+                        <textarea formControlName="Address"></textarea>
                     </div>
+                    <div fxLayout="row" fxLayoutGap="15">
+                        <div class="name" fxLayout="column">
+                            <label>city/town</label>
+                            <input class="Box" formControlName="City">
+                        </div>
+                        <div class="mobile" fxLayout="column">
+                            <label>State</label>
+                            <input class="Box" formControlName="State">
+                        </div>
+                    </div>
+                    <div class="AddressArea">
+                        <mat-radio-button><b> Home</b></mat-radio-button>
+                        <button class="editButton" mat-button>Edit</button>
+                        <div class="AddressField" fxLayout="column">
+                            <b>Address</b>
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                    <div fxLayoutAlign="end end" *ngIf="OrderSummery==false">
+                        <button class="reviewSubmitButton" (click)="OrderSummeryView()" mat-raised-button
+                            color="primary">Continue</button>
+                    </div>
+
                 </div>
-                <div fxLayoutAlign="end end" *ngIf="OrderSummery==false">
-                    <button class="reviewSubmitButton" (click)="OrderSummeryView()" mat-raised-button
-                        color="primary">Continue</button>
-                </div>
-            </div>
+            </form>
         </div>
 
         <!-- Order Summery -->
@@ -136,8 +152,8 @@
                 </div>
             </div>
             <div fxLayoutAlign="end end">
-                <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button
-                    color="primary">CHECKOUT</button>
+                <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button color="primary"
+                    routerLink="/dashboard/order_placed">CHECKOUT</button>
             </div>
         </div>
 
