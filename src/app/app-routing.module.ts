@@ -6,6 +6,7 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GetAllBooksComponent } from './component/get-all-books/get-all-books.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { RegistrationComponent } from './component/registration/registration.component';
+import { WishListComponent } from './component/wish-list/wish-list.component';
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
@@ -16,7 +17,9 @@ const routes: Routes = [
       { path: 'books', component: GetAllBooksComponent },
       { path: 'bookaction', component: BookActionComponent },
       { path: 'cart', component: CartViewComponent },
-      { path: 'order_placed', component: PlacedOrderComponent }
+      { path: 'order_placed', component: PlacedOrderComponent },
+      { path: 'wishlist', component:WishListComponent}
+      
     ]
   }
 ];

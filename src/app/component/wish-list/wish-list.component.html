@@ -1,0 +1,38 @@
+<div class="main" fxLayoutAlign="center center">
+    <div fxFlex="60" class="InsideMainDiv">
+        <div fxLayout="row">
+            <P class="home" routerLink="/dashboard/books">Home /</P>
+            <p> My Wishlist</p>
+        </div>
+
+
+
+        <div class="cartDetail">
+            <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
+                <div>
+                    <b>My Wishlist ({{bookcount}})</b>
+                </div>
+                <div class="selectedAddress" fxLayoutGap="1" fxLayout="column" fxLayoutAlign="center center">
+
+                </div>
+            </div>
+            <div *ngFor="let book of Wishlist" fxLayout="row" class="loopdiv">
+                <div class="bookPic" fxLayoutAlign="start center">
+                    <img class="pic" src={{book.bookImage}}>
+                </div>
+                <div fxFlex="80" fxLayout="row" fxLayoutAlign="space-between center" class="bookDetails" >
+                    <div>
+                        <p class="title">{{book.bookName}}</p>
+                        <p class="author">by {{book.author}}</p>
+                        <p class="price"><b> Rs. {{book.discountPrice}} </b><sup><s
+                                    class="mainprice">Rs.{{book.price}}</s></sup></p>
+                    </div>
+                    <div>
+                        <img class="remove" src="../../../assets/Images/delete_forever.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

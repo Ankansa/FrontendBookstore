@@ -24,4 +24,15 @@ export class WishlistService {
     }
     return this.httpService.postService('wishlist/'+bookId,null,true,httpOptions)
   }
+
+  getWishList(){
+    console.log("The token is",this.token)
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': "bearer " + this.token,
+      })
+    }
+    return this.httpService.getService('wishlist/',true,httpOptions)
+  }
 }
