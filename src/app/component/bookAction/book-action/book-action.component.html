@@ -9,15 +9,14 @@
         <div class="userAction" fxLayoutAlign="space-between center">
             <div class="addCart" fxFlex="49">
                 <button class="fullWidth" fxFlex="100" mat-raised-button
-                    [ngStyle]="{'background-color':'#A03037', 'color':'#FFFFFF'}">Add to cart</button>
+                    [ngStyle]="{'background-color':'#A03037', 'color':'#FFFFFF'}" (click)="addToCart(bookDetails._id)">Add to cart</button>
             </div>
             <div class="Wishlist" fxFlex="49">
                 <button class="fullWidth" fxFlex="100" mat-raised-button
-                    [ngStyle]="{'background-color':'#333333', 'color':'#FFFFFF'}">Wishlist</button>
+                    [ngStyle]="{'background-color':'#333333', 'color':'#FFFFFF'}" (click)="addToWishlist(bookDetails._id)">Wishlist</button>
             </div>
         </div>
     </div>
-
 
 
 

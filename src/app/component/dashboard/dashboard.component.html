@@ -30,7 +30,7 @@
         </div>
         <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-evenly center">
             <div>
-                <img mat-button [matMenuTriggerFor]="menu" src="../../../assets/Images/profile.png">
+                <button mat-button><img mat-button [matMenuTriggerFor]="menu" src="../../../assets/Images/profile.png"></button>
             </div>
             <mat-menu #menu="matMenu">
                 <button mat-menu-item>Setting</button>
@@ -38,7 +38,8 @@
             </mat-menu>
 
             <div>
-                <img src="../../../assets/Images/cart.png">
+                <button mat-button routerLink="/dashboard/cart"><img src="../../../assets/Images/cart.png"></button>
+                
             </div>
         </div>
     </mat-toolbar>

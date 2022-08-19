@@ -12,6 +12,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 
 
 
@@ -28,6 +31,7 @@ import { RegistrationComponent } from './component/registration/registration.com
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { GetAllBooksComponent } from './component/get-all-books/get-all-books.component';
 import { BookActionComponent } from './component/bookAction/book-action/book-action.component';
+import { CartViewComponent } from './component/cart-view/cart-view.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { BookActionComponent } from './component/bookAction/book-action/book-act
     RegistrationComponent,
     DashboardComponent,
     GetAllBooksComponent,
-    BookActionComponent
+    BookActionComponent,
+    CartViewComponent
     
   ],
   imports: [
@@ -52,7 +57,8 @@ import { BookActionComponent } from './component/bookAction/book-action/book-act
     MatSnackBarModule,
     MatToolbarModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
