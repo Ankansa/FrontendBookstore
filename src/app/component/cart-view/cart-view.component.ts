@@ -21,10 +21,12 @@ export class CartViewComponent implements OnInit {
 
   addressForm: FormGroup;
 
+  diseble = true;
+
+  name="Ankan"
 
 
-
-  constructor(private cartService: CartService, private formBuilder: FormBuilder,private snakbar: MatSnackBar) { }
+  constructor(private cartService: CartService, private formBuilder: FormBuilder, private snakbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.viewCart()
@@ -86,7 +88,7 @@ export class CartViewComponent implements OnInit {
     console.log("purchased is called")
     if (this.addressForm.valid) {
       console.log("The input address data is valid: ", this.addressForm.value)
-      
+
       this.cartService.purchased().subscribe((responce: any) => {
         console.log("The purchased responce is :", responce)
 
@@ -101,7 +103,7 @@ export class CartViewComponent implements OnInit {
       })
     }
   }
- 
+
 }
 
 

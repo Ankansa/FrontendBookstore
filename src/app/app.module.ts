@@ -14,7 +14,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
-
+import { AuthenticationGuard } from './Service/Authguard/authentication.guard';
 
 
 
@@ -36,6 +36,10 @@ import { BookActionComponent } from './component/bookAction/book-action/book-act
 import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
+import { SearchFilterPipe } from './Pipe/search-filter.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { WishListComponent } from './component/wish-list/wish-list.component';
     BookActionComponent,
     CartViewComponent,
     PlacedOrderComponent,
-    WishListComponent
+    WishListComponent,
+    SearchFilterPipe
     
     
   ],
@@ -66,7 +71,9 @@ import { WishListComponent } from './component/wish-list/wish-list.component';
     MatCardModule,
     MatMenuModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    NgxPaginationModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

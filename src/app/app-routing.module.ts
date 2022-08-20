@@ -7,12 +7,14 @@ import { GetAllBooksComponent } from './component/get-all-books/get-all-books.co
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { RegistrationComponent } from './component/registration/registration.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
+import { AuthenticationGuard } from './Service/Authguard/authentication.guard';
+
 
 const routes: Routes = [
   { path: 'registration', component: RegistrationComponent },
   // {path: 'test', component: GetAllBooksComponent},
   {
-    path: 'dashboard', component: DashboardComponent,
+    path: 'dashboard',canActivate:[AuthenticationGuard], component: DashboardComponent,
     children: [
       { path: 'books', component: GetAllBooksComponent },
       { path: 'bookaction', component: BookActionComponent },
