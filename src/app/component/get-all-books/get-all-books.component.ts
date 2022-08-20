@@ -29,7 +29,7 @@ export class GetAllBooksComponent implements OnInit {
   allBooks() {
     this.bookService.getAllBooks().subscribe((items: any) => {
       console.log("All books are : ", items);
-      this.books=items.data.reverse()
+      this.books=items.data
       this.totalBooks= items.data.length
 
       console.log("Array of All books are : ", this.books);
@@ -43,6 +43,16 @@ export class GetAllBooksComponent implements OnInit {
   bookDetails(book:any) {
     this.dataService.changeMessage(book)
     console.log(book)
+  }
+
+  lowtohigh() {
+    this.books = this.books.sort((low: any, high: any) => low.discountPrice - high.discountPrice); 
+  }
+  hightolow() {
+    this.books = this.books.sort((low: any, high: any) => high.discountPrice - low.discountPrice);
+  }
+  newestarrivals() {
+    this.books.reverse();
   }
 
 }
