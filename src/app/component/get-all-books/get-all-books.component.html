@@ -3,12 +3,10 @@
         <h2>Books</h2> <h5>({{totalBooks}}) items</h5>
     </div>
     <div class="main" fxLayoutGap="10">
-        <mat-card fxFlex="20" *ngFor="let book of books" class="card">
+        <mat-card fxFlex="20" *ngFor="let book of books | searchFilter:searchString" class="card">
 
             <div fxLayout="column" (click)="bookDetails(book)" routerLink="/dashboard/bookaction">
                 <div fxLayoutAlign="space-around center">
-                    <!-- <img src="../../../assets/Images/Book.png"> -->
-                    <!-- <img src={{book.bookImage}} alt="No Photo Available" src='../../../assets/Images/dummy.png'> -->
                     <img src={{book.bookImage}} onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';" alt="add alternative text here">
                 </div>
                 <div fxLayout="column">
@@ -21,3 +19,8 @@
         </mat-card>
     </div>
 </div>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>

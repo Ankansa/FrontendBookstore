@@ -1,7 +1,7 @@
 <div class="main" fxLayout="row" fxLayoutAlign="center start">
     <div fxFlex="20" class="leftdiv">
         <div class="bookImage" fxLayoutAlign="space-around center">
-            <img class="img" src={{bookDetails.bookImage}} alt="No Photo Available">
+            <img src={{bookDetails.bookImage}} onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';" alt="add alternative text here">
         </div>
 
 

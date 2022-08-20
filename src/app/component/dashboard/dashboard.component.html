@@ -19,7 +19,7 @@
                             <mat-icon id="search" matTooltip="Search">search</mat-icon>
                         </button>
 
-                        <input fxFlex="92" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
+                        <input #myTitle (keyup)="newMessage(myTitle.value)"   fxFlex="92" matInput placeholder="Search" [style.fontSize.px]="16" class="search-window"
                             autocomplete="off" type="text" />
 
 

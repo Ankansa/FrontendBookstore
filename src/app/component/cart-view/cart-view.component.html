@@ -3,6 +3,7 @@
         <div fxLayout="row">
             <P class="home" routerLink="/dashboard/books">Home /</P>
             <p> My cart</p>
+            
         </div>
         <!-- Cart books -->
 
@@ -25,7 +26,7 @@
             </div>
             <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
                 <div class="bookPic" fxLayoutAlign="start center">
-                    <img class="pic" src={{book.bookImage}}>
+                    <img src={{book.bookImage}} onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';" alt="add alternative text here">
                 </div>
                 <div class="bookDetails">
                     <p class="title">{{book.bookName}}</p>
@@ -73,7 +74,7 @@
                     <button (click)="addAddress()" class="newAdress">Add New Address</button>
                 </div>
             </div>
-            <form [formGroup]="addressForm">
+            <form [formGroup]="addressForm" >
                 <div fxLayout="row" fxLayoutGap="15">
                     <div class="name" fxLayout="column">
                         <label>Full Name</label>
@@ -95,16 +96,16 @@
 
                     <div class="AddressField" fxLayout="column">
                         <b>Address</b>
-                        <textarea formControlName="Address"></textarea>
+                        <textarea formControlName="Address" ></textarea>
                     </div>
                     <div fxLayout="row" fxLayoutGap="15">
                         <div class="name" fxLayout="column">
                             <label>city/town</label>
-                            <input class="Box" formControlName="City">
+                            <input class="Box" formControlName="City" >
                         </div>
                         <div class="mobile" fxLayout="column">
                             <label>State</label>
-                            <input class="Box" formControlName="State">
+                            <input class="Box"  formControlName="State"  >
                         </div>
                     </div>
                     <div class="AddressArea">

@@ -13,10 +13,14 @@ export class GetAllBooksComponent implements OnInit {
 
   totalBooks:any
 
+  searchString: any;
+
+
   constructor(private bookService: BookServiceService, private dataService: DataServiceService) { }
 
   ngOnInit(): void {
     this.allBooks()
+    this.dataService.newSearchMessage.subscribe(message => this.searchString = message)
   }
 
 

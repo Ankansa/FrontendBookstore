@@ -36,6 +36,9 @@ import { BookActionComponent } from './component/bookAction/book-action/book-act
 import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
+import { SearchFilterPipe } from './Pipe/search-filter.pipe';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { WishListComponent } from './component/wish-list/wish-list.component';
     BookActionComponent,
     CartViewComponent,
     PlacedOrderComponent,
-    WishListComponent
+    WishListComponent,
+    SearchFilterPipe
     
     
   ],
@@ -66,7 +70,8 @@ import { WishListComponent } from './component/wish-list/wish-list.component';
     MatCardModule,
     MatMenuModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
