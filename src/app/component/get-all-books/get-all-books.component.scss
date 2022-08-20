@@ -20,3 +20,16 @@
 .fontColorgray {
     color: #878787;
 }
+
+.paginationOuter{
+    text-align: center;
+    margin-top: 3%;
+    font-size: larger;
+    margin-bottom: 3%;
+    
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+    background: #8F2B2F;
+    color: #FFFFFF;
+}

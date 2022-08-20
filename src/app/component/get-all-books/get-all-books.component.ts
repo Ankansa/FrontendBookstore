@@ -15,6 +15,8 @@ export class GetAllBooksComponent implements OnInit {
 
   searchString: any;
 
+  page:number = 1;
+
 
   constructor(private bookService: BookServiceService, private dataService: DataServiceService) { }
 

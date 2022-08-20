@@ -37,8 +37,7 @@ import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
 import { SearchFilterPipe } from './Pipe/search-filter.pipe';
-import {MatPaginatorModule} from '@angular/material/paginator';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -71,7 +70,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatMenuModule,
     MatRadioModule,
     MatSelectModule,
-    MatPaginatorModule
+    NgxPaginationModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
