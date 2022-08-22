@@ -1,6 +1,6 @@
-<div>
+<div >
 
-    <mat-toolbar [ngStyle]="{'background-color':'#A03037'}">
+    <mat-toolbar class="toolbar" [ngStyle]="{'background-color':'#A03037'}">
         <div fxFlex="80" fxLayoutAlign="space-around center">
 
             <div fxFlex="13" fxLayoutAlign="space-between center">
@@ -39,7 +39,7 @@
             </mat-menu>
 
             <div>
-                <button mat-button routerLink="/dashboard/cart"><img src="../../../assets/Images/cart.png"></button>
+                <button  mat-button routerLink="/dashboard/cart"><img src="../../../assets/Images/cart.png"></button>
                 
             </div>
         </div>
@@ -49,7 +49,7 @@
     <div>
         <router-outlet></router-outlet>
     </div>
-    <div>
-        <h2 class="footer">Copyright © 2020, Bookstore Private Limited. All Rights Reserved</h2>
+    <div class="footer">
+        <h4 >Copyright © 2022, Bookstore Private Limited. All Rights Reserved <a class="mail" href="mailto:ankan.sark@mail.com">Ankan Sarkar</a></h4>
     </div>
 </div>
