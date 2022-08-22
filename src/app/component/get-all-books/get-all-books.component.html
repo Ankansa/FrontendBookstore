@@ -1,48 +1,53 @@
-<div fxLayout="column" >
-    <div class="sortLineDiv" fxLayout="row" fxLayoutAlign="space-between center"  >
-        <div fxLayoutGap="5" fxLayout="row" fxLayoutAlign="start center" class="countDiv" >
-            <h2>Books</h2>
-            <h5>({{totalBooks}}) items</h5>
-        </div>
+<div fxLayoutAlign="center center" >
 
-        <!-- Short condition -->
-
-        <div class="sort">
-            <mat-form-field appearance="outline" class="mat-form-field" >
-                <mat-label>Sort by relevance</mat-label>
-                <mat-select class="selectOption">
-                    <mat-option (click)="lowtohigh()" >Price:Low to High</mat-option>
-                    <mat-option (click)="hightolow()" >Price:High to Low</mat-option>
-                    <mat-option (click)="newestarrivals()" >Newest Arrivals</mat-option>
-                </mat-select>
-            </mat-form-field>
-        </div>
-
-    </div>
+    <div fxFlex="75" fxFlex.xs="100" fxLayout="column"  >
 
 
 
-    <div class="main" fxLayoutGap="10" >
-        <mat-card fxFlex="20" *ngFor="let book of books | searchFilter:searchString | 
-        paginate: { 
-            itemsPerPage: 8, 
-            currentPage: page, 
-            totalItems : totalBooks 
-        }" class="card">
-
-            <div fxLayout="column" (click)="bookDetails(book)" routerLink="/dashboard/bookaction">
-                <div fxLayoutAlign="space-around center">
-                    <img src={{book.bookImage}}
-                        onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';"
-                        alt="add alternative text here">
-                </div>
-                <div fxLayout="column">
-                    <b>{{book.bookName}}</b>
-                    <p class="fontColorgray"> by {{book.author}}</p>
-                    <p><b> Rs. {{book.discountPrice}} </b><sup><s class="fontColorgray">Rs. {{book.price}}</s></sup></p>
-                </div>
+        <div class="sortLineDiv" fxLayout="row" fxLayoutAlign="space-between center"  fxLayoutAlign.xs="space-between center" >
+            <div fxLayout="row" fxLayoutAlign="start center" class="countDiv">
+                <h2>Books</h2>
+                <h5>({{totalBooks}}) items</h5>
             </div>
-        </mat-card>
+
+            <!-- Short condition -->
+
+            <div class="sort"  fxFlex.xs="40" >
+                <mat-form-field appearance="outline" class="mat-form-field" fxFlex.xs="100">
+                    <mat-label>Sort by relevance</mat-label>
+                    <mat-select class="selectOption">
+                        <mat-option (click)="lowtohigh()">Price:Low to High</mat-option>
+                        <mat-option (click)="hightolow()">Price:High to Low</mat-option>
+                        <mat-option (click)="newestarrivals()">Newest Arrivals</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+
+
+        <div class="main"  fxLayoutGap="10"  fxLayoutAlign.xs="space-between center">
+            <mat-card fxFlex="24" fxFlex.xs="47"
+                *ngFor="let book of books | searchFilter:searchString | paginate: { itemsPerPage: 8, currentPage: page, totalItems : totalBooks }"
+                class="card">
+
+                <div fxLayout="column" (click)="bookDetails(book)" routerLink="/dashboard/bookaction">
+                    <div fxLayoutAlign="space-around center" >
+                        <img fxFlex.xs="100" src={{book.bookImage}}
+                            onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';"
+                            alt="add alternative text here">
+                    </div>
+                    <div fxLayout="column">
+                        <b>{{book.bookName}}</b>
+                        <p class="fontColorgray"> by {{book.author}}</p>
+                        <p><b> Rs. {{book.discountPrice}} </b><sup><s class="fontColorgray">Rs. {{book.price}}</s></sup>
+                        </p>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <pagination-controls  class="pagination paginationOuter" (pageChange)="page = $event"></pagination-controls>
     </div>
-    <pagination-controls class="pagination paginationOuter" (pageChange)="page = $event"></pagination-controls>
+
 </div>

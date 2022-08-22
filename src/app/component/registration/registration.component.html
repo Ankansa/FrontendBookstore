@@ -3,7 +3,7 @@
 
 
 
-    <div class="leftdiv" fxFlex="25" fxLayout="column" fxLayoutAlign="center center">
+    <div class="leftdiv" fxFlex="25" fxLayout="column" fxLayoutAlign="center center" fxHide.xs>
         <div fxLayoutAlign="center center">
             <img fxFlex="80" class="img" src="../../../assets/Images/bookstore.png">
         </div>
@@ -14,7 +14,7 @@
 
 
 
-    <div class="rightdiv" fxFlex="35">
+    <div class="rightdiv" fxFlex="35" fxFlex.xs="80">
         <div fxLayout="row" fxLayoutAlign="space-evenly center">
             <button (click)="view()" class="button" mat-button>LOGIN</button>
             <button (click)="view2()" class="button" mat-button>SIGNUP</button>
