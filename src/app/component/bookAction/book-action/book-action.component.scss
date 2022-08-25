@@ -48,6 +48,9 @@ textarea{
     margin-bottom: 3%;
 }
 
+.username{
+    margin: 0;
+}
 
 
 
@@ -111,4 +114,16 @@ textarea{
 
     .reviews{
         margin-bottom: 5%;
+    }
+
+    .shortName{
+        width: fit-content;
+        background-color: red;
+        border-radius: 30vh;
+    }
+
+    .commentRating{
+        color: #FFCE00;
+        font-size:x-large;
+
     }

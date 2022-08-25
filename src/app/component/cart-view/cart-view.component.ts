@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CartService } from 'src/app/Service/cart/cart.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class CartViewComponent implements OnInit {
   name="Ankan"
 
 
-  constructor(private cartService: CartService, private formBuilder: FormBuilder, private snakbar: MatSnackBar) { }
+  constructor(private cartService: CartService, private formBuilder: FormBuilder,private router: Router, private snakbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.viewCart()
@@ -92,6 +92,7 @@ export class CartViewComponent implements OnInit {
       }, (error: any) => {
         console.log("The error is: ", error);
         this.snakbar.open(error.error.message, 'Ok', {
+          
         });
       })
     }
@@ -108,12 +109,15 @@ export class CartViewComponent implements OnInit {
         this.snakbar.open('purchased Sucessfull', 'Ok', {
           duration: 4000
         });
-
+        this.router.navigateByUrl('/dashboard/order_placed');
       }, (error: any) => {
         console.log("The error is: ", error);
         this.snakbar.open(error.error.message, 'Ok', {
         });
       })
+    }else{
+      this.snakbar.open("Please enter a proper address", 'Ok', {
+      });
     }
   }
 
