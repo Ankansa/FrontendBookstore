@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { BookServiceService } from 'src/app/Service/book/book-service.service';
 import { CartService } from 'src/app/Service/cart/cart.service';
@@ -19,7 +20,7 @@ export class BookActionComponent implements OnInit {
   userName: any
 
   constructor(private dataService: DataServiceService, private cartService: CartService,
-    private wishlistService: WishlistService, private bookService: BookServiceService) { }
+    private wishlistService: WishlistService, private bookService: BookServiceService, private snakbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.subscription = this.dataService.currentMessage.subscribe((responce: any) => {
@@ -33,6 +34,10 @@ export class BookActionComponent implements OnInit {
     console.log("add to cart book details is called")
     return this.cartService.addToCart(bookid).subscribe((Response => {
       console.log("add to cart book details is :", Response)
+
+      this.snakbar.open('Book Sucessfully Added To Cart', 'Ok', {
+        duration: 4000
+      });
     }))
   }
 
@@ -41,6 +46,10 @@ export class BookActionComponent implements OnInit {
     return this.wishlistService.addToWishlist(bookid).subscribe((Response => {
       console.log("add to wishlist book details is :", Response)
       console.log("addToWishlist function BookId is :", bookid)
+
+      this.snakbar.open('Book Sucessfully Added To Wishlist', 'Ok', {
+        duration: 4000
+      });
     }))
   }
 
@@ -61,6 +70,10 @@ export class BookActionComponent implements OnInit {
     return this.bookService.addFeedback(bookid, requearData).subscribe((responce: any) => {
       console.log("feedback function responce is :", responce)
       console.log("feedback function BookId is :", bookid)
+
+      this.snakbar.open('Review submited Sucessfully', 'Ok', {
+        duration: 4000
+      });
     })
   }
 
@@ -74,6 +87,5 @@ export class BookActionComponent implements OnInit {
     })
   }
 
-
-
+  
 }

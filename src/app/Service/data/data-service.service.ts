@@ -25,9 +25,4 @@ export class DataServiceService {
     this.searchMessageSource.next(message)
   }
 
- 
-// This is for make a "Observable" for getting name in profile
-
-  // username=new BehaviorSubject<any>("Test Name")
-
 }

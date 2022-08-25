@@ -54,9 +54,9 @@
 
 
                         <div class="rating">
-                            <input (click)="getStarValue(rating4.value)" #rating4 type="radio"  value="4" id="4"><label for="4">☆</label>
+                            <input (click)="getStarValue(rating4.value)" #rating4 type="radio"  value="5" id="4"><label for="4">☆</label>
                             <input (click)="getStarValue(rating3.value)" #rating3 type="radio"  value="3" id="3"><label for="3">☆</label>
-                            <input (click)="getStarValue(rating5.value)" #rating5 type="radio"  value="5" id="5"><label for="5">☆</label>
+                            <input (click)="getStarValue(rating5.value)" #rating5 type="radio"  value="4" id="5"><label for="5">☆</label>
                             <input (click)="getStarValue(rating2.value)" #rating2 type="radio"  value="2" id="2"><label for="2">☆</label>
                             <input (click)="getStarValue(rating1.value)" #rating1 type="radio"  value="1" id="1"><label for="1">☆</label>
 
@@ -74,16 +74,10 @@
                     </div>
 
                 </div>
-                <div class="reviews" *ngFor="let Feedback of allFeedbacksArray">
-                    <p><b>{{Feedback.UserName}}</b></p>
-                    <p>star rating is : {{Feedback.star}}</p>
+                <div fxLayoutGap="5" class="reviews" *ngFor="let Feedback of allFeedbacksArray">
+                    <p class="username"><b >{{Feedback.UserName}}</b></p>
+                    <label class="commentRating" *ngFor="let _ of [].constructor(Feedback.star)">&starf;</label>
                     <p class="comment">{{Feedback.feedback}}</p>
-                    
-
-                    <!-- <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p> -->
                 </div>
             </div>
 

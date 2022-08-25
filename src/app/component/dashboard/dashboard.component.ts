@@ -12,18 +12,15 @@ export class DashboardComponent implements OnInit {
   UserName: any
   bookcount: number
   constructor(private dataService: DataServiceService, private cartService: CartService) {
-    // this.dataService.username.subscribe((responce: any) => {
-    //   this.UserName = responce
-      // console.log("Username responce is :", this.UserName)
-    // })
+ 
   }
 
   ngOnInit(): void {
     console.log("DAshboard on init called")
     this.cartCount()
 
-    // Sending local storage name to deta service (new subject observable)
-    // this.dataService.username.next(localStorage.getItem("Name"))
+    // getting local storage name 
+   
     this.UserName = localStorage.getItem("Name")
   }
 
