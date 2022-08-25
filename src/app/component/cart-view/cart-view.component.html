@@ -3,30 +3,32 @@
         <div fxLayout="row">
             <P class="home" routerLink="/dashboard/books">Home /</P>
             <p> My cart</p>
-            
+
         </div>
         <!-- Cart books -->
 
-        <div class="cartDetail">
+        <div class="cartDetail" *ngIf="addressDetails==false">
             <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
                 <div>
                     <b>My Cart ({{bookcount}})</b>
                 </div>
-                <div class="selectedAddress"  fxLayoutGap="1" fxLayout="column" fxLayoutAlign="center center" >
+                <div class="selectedAddress" fxLayoutGap="1" fxLayout="column" fxLayoutAlign="center center">
 
                     <!-- <mat-form-field appearance="fill"> -->
-                        <p class="remove" >Select your address</p>
-                        <select disableRipple >
-                            <option value="1">Address 1</option>
-                            <option value="2">Address 2</option>
-                        </select>
+                    <p class="remove">Select your address</p>
+                    <select disableRipple>
+                        <option value="1">Address 1</option>
+                        <option value="2">Address 2</option>
+                    </select>
                     <!-- </mat-form-field> -->
 
                 </div>
             </div>
             <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
                 <div class="bookPic" fxLayoutAlign="start center">
-                    <img src={{book.bookImage}} onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';" alt="add alternative text here">
+                    <img src={{book.bookImage}}
+                        onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';"
+                        alt="add alternative text here">
                 </div>
                 <div class="bookDetails">
                     <p class="title">{{book.bookName}}</p>
@@ -49,92 +51,98 @@
                     </div>
                 </div>
             </div>
-            <div fxLayoutAlign="end end" *ngIf="addressDetails==false">
+            <div fxLayoutAlign="end end">
                 <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button
                     color="primary">Submit</button>
             </div>
         </div>
 
+        <!-- Cart Area -->
 
-        <!-- Address area -->
-
-        <div class="borderArea" *ngIf="addressDetails==false">
-            Address Details
+        <div (click)="addressDetailsView()" class="borderArea" *ngIf="addressDetails==true">
+            <b>My Cart ({{bookcount}})</b>
         </div>
 
 
 
 
-        <div class="borderArea" *ngIf="addressDetails==true">
-            <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
-                <div>
-                    <b>Customer Details</b>
-                </div>
-                <div class="addAddress">
-                    <button (click)="addAddress()" class="newAdress">Add New Address</button>
-                </div>
-            </div>
-            <form [formGroup]="addressForm" >
-                <div fxLayout="row" fxLayoutGap="15">
-                    <div class="name" fxLayout="column">
-                        <label>Full Name</label>
-                        <input class="Box" formControlName="Name">
+        <!-- Address area -->
+
+        <div (click)="OrderSummeryView()" class="borderArea" *ngIf="addressDetails==false || OrderSummery==true">
+            <b>Address Details</b>
+        </div>
+
+
+
+
+        <div *ngIf="addressDetails==true">
+            <div class="borderArea" *ngIf="OrderSummery==false">
+                <div class="titleText" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                        <b>Customer Details</b>
                     </div>
-                    <div class="mobile" fxLayout="column">
-                        <label>Mobile Number</label>
-                        <input class="Box" formControlName="PhoneNumber">
+                    <div class="addAddress">
+                        <button (click)="addAddress()" class="newAdress">Add New Address</button>
                     </div>
                 </div>
-                <div class="AddressArea">
-
-
-
-
-
-                    <mat-radio-button><b> Work</b></mat-radio-button>
-                    <button class="editButton" mat-button>Edit</button>
-
-                    <div class="AddressField" fxLayout="column">
-                        <b>Address</b>
-                        <textarea formControlName="Address" ></textarea>
-                    </div>
+                <form [formGroup]="addressForm">
                     <div fxLayout="row" fxLayoutGap="15">
                         <div class="name" fxLayout="column">
-                            <label>city/town</label>
-                            <input class="Box" formControlName="City" >
+                            <label>Full Name</label>
+                            <input class="Box" formControlName="Name">
                         </div>
                         <div class="mobile" fxLayout="column">
-                            <label>State</label>
-                            <input class="Box"  formControlName="State"  >
+                            <label>Mobile Number</label>
+                            <input class="Box" formControlName="PhoneNumber">
                         </div>
                     </div>
                     <div class="AddressArea">
-                        <mat-radio-button><b> Home</b></mat-radio-button>
+
+                        <mat-radio-button><b> Work</b></mat-radio-button>
                         <button class="editButton" mat-button>Edit</button>
+
                         <div class="AddressField" fxLayout="column">
                             <b>Address</b>
-                            <textarea></textarea>
+                            <textarea formControlName="Address"></textarea>
                         </div>
-                    </div>
-                    <div fxLayoutAlign="end end" *ngIf="OrderSummery==false">
-                        <button class="reviewSubmitButton" (click)="OrderSummeryView()" mat-raised-button
-                            color="primary">Continue</button>
-                    </div>
+                        <div fxLayout="row" fxLayoutGap="15">
+                            <div class="name" fxLayout="column">
+                                <label>city/town</label>
+                                <input class="Box" formControlName="City">
+                            </div>
+                            <div class="mobile" fxLayout="column">
+                                <label>State</label>
+                                <input class="Box" formControlName="State">
+                            </div>
+                        </div>
+                        <div class="AddressArea">
+                            <mat-radio-button><b> Home</b></mat-radio-button>
+                            <button class="editButton" mat-button>Edit</button>
+                            <div class="AddressField" fxLayout="column">
+                                <b>Address</b>
+                                <textarea></textarea>
+                            </div>
+                        </div>
+                        <div fxLayoutAlign="end end">
+                            <button class="reviewSubmitButton" (click)="OrderSummeryView()" mat-raised-button
+                                color="primary">Continue</button>
+                        </div>
 
-                </div>
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <!-- Order Summery -->
 
-        <div class="borderArea" *ngIf="OrderSummery==false">
-            Order summery
+        <div class="borderArea" *ngIf="OrderSummery==false || addressDetails==false">
+            <b>Order summery</b>
         </div>
 
 
 
 
-        <div class="borderArea" *ngIf="OrderSummery==true">
+        <div class="borderArea" *ngIf="OrderSummery==true && addressDetails==true">
             <div class="titleText">
 
                 <b>Order summery</b>
@@ -142,7 +150,9 @@
             </div>
             <div *ngFor="let book of cartBooks" fxLayout="row" class="loopdiv">
                 <div class="bookPic" fxLayoutAlign="start center">
-                    <img class="pic" src={{book.bookImage}}>
+                    <img class="pic" src={{book.bookImage}}
+                        onerror="if (this.src != '../../../assets/Images/download.png') this.src = '../../../assets/Images/download.png';"
+                        alt="add alternative text here">
                 </div>
                 <div class="bookDetails">
                     <p class="title">{{book.bookName}}</p>
@@ -152,9 +162,12 @@
 
                 </div>
             </div>
+            <div>
+                <b>Total price = {{cart.cart_total}}</b>
+            </div>
             <div fxLayoutAlign="end end">
                 <button (click)="addressDetailsView()" class="reviewSubmitButton" mat-raised-button color="primary"
-                    routerLink="/dashboard/order_placed">CHECKOUT</button>
+                    routerLink="/dashboard/order_placed" (click)="purchased()">CHECKOUT</button>
             </div>
         </div>
 

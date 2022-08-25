@@ -6,7 +6,7 @@
     </div>
 
 
-    <div class="main" fxLayout="row" fxLayoutAlign="center start" >
+    <div class="main" fxLayout="row" fxLayoutAlign="center start">
 
 
 
@@ -49,25 +49,41 @@
             <div class="Feedback">
                 <p>Customer Feedback</p>
                 <div class="reviewField" [ngStyle]="{'background-color':'#F5F5F5'}">
-                    <div class="rating">
+                    <div class="ratingdiv">
                         <p class="description"><b>Overall rating </b></p>
-                        rating star Icons
+
+
+                        <div class="rating">
+                            <input (click)="getStarValue(rating4.value)" #rating4 type="radio"  value="4" id="4"><label for="4">☆</label>
+                            <input (click)="getStarValue(rating3.value)" #rating3 type="radio"  value="3" id="3"><label for="3">☆</label>
+                            <input (click)="getStarValue(rating5.value)" #rating5 type="radio"  value="5" id="5"><label for="5">☆</label>
+                            <input (click)="getStarValue(rating2.value)" #rating2 type="radio"  value="2" id="2"><label for="2">☆</label>
+                            <input (click)="getStarValue(rating1.value)" #rating1 type="radio"  value="1" id="1"><label for="1">☆</label>
+
+                        </div>
+
+
+
                     </div>
 
                     <div class="reviewBox" fxLayout="column" fxLayoutAlign="end end">
-                        <textarea [ngStyle]="{'background-color':'#FFFFFF'}" matInput
-                            placeholder="Write your review"></textarea>
-                        <button class="reviewSubmitButton" mat-raised-button color="primary">Submit</button>
+                        <textarea [ngStyle]="{'background-color':'#FFFFFF'}" matInput placeholder="Write your review"
+                            #comment></textarea>
+                        <button class="reviewSubmitButton" (click)="addFeedback(bookDetails._id, comment.value)"
+                            mat-raised-button color="primary">Submit</button>
                     </div>
 
                 </div>
+                <div class="reviews" *ngFor="let Feedback of allFeedbacksArray">
+                    <p><b>{{Feedback.UserName}}</b></p>
+                    <p>star rating is : {{Feedback.star}}</p>
+                    <p class="comment">{{Feedback.feedback}}</p>
+                    
 
-                <div>
+                    <!-- <p>All reviews shown hear</p>
                     <p>All reviews shown hear</p>
                     <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p>
-                    <p>All reviews shown hear</p>
+                    <p>All reviews shown hear</p> -->
                 </div>
             </div>
 

@@ -15,6 +15,8 @@ export class CartViewComponent implements OnInit {
 
   cartBooks: any
 
+  cart:any
+
   addressDetails = false;
 
   OrderSummery = false;
@@ -45,16 +47,27 @@ export class CartViewComponent implements OnInit {
       console.log("add to viewCart book details is :", Response.data.books)
       this.cartBooks = Response.data.books
       this.bookcount = Response.data.books.length
+      this.cart=Response.data
     })
   }
 
   addressDetailsView() {
-    this.addressDetails = true
+    console.log("addressDetailsView () called")
+    if(this.addressDetails == false){
+      this.addressDetails = true
+    }else{
+      this.addressDetails = false
+    }
   }
 
 
   OrderSummeryView() {
-    this.OrderSummery = true
+    console.log("OrderSummeryView () called")
+    if(this.OrderSummery == false){
+      this.OrderSummery = true
+    }else{
+      this.OrderSummery = false
+    }
   }
 
   removeAllBook(bookId: any) {

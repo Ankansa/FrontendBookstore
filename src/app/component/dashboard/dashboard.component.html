@@ -30,17 +30,24 @@
         </div>
         <div fxFlex="10" fxLayout="row" fxLayoutAlign="space-evenly center">
             <div>
-                <button mat-button><img mat-button [matMenuTriggerFor]="menu" src="../../../assets/Images/profile.png"></button>
+                <button mat-button  [matMenuTriggerFor]="menu" >
+                    <img  src="../../../assets/Images/profile.png">
+                    <h5 class="profileName" >{{UserName}}</h5>
+                </button>
             </div>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item routerLink="/dashboard/wishlist">Wishlist</button>
-                <button mat-menu-item>Setting</button>
-                <button mat-menu-item (click)="logOut()" routerLink="/registration">Log Out</button>
+            <mat-menu #menu="matMenu" class="usermenu">
+                <h3 class="username" >Hello {{UserName}},</h3>
+                <button class="usermenuButton" mat-menu-item routerLink="/dashboard/wishlist">Wishlist</button>
+                <button class="usermenuButton" mat-menu-item>Settings</button>
+                <button class="usermenuButton" mat-menu-item (click)="logOut()" routerLink="/registration">Log Out</button>
             </mat-menu>
 
             <div>
-                <button  mat-button routerLink="/dashboard/cart"><img src="../../../assets/Images/cart.png"></button>
-                
+                <button  mat-button routerLink="/dashboard/cart">
+                    <mat-icon matBadgeColor="warn" matBadge={{bookcount}} ><img src="../../../assets/Images/cart.png"></mat-icon>
+                    <h5 class="profileName" >Cart</h5>
+                </button>
+
             </div>
         </div>
     </mat-toolbar>
