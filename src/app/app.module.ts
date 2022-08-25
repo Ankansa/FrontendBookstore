@@ -15,6 +15,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { AuthenticationGuard } from './Service/Authguard/authentication.guard';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {MatBadgeModule} from '@angular/material/badge';
+
 
 
 
@@ -37,7 +40,6 @@ import { CartViewComponent } from './component/cart-view/cart-view.component';
 import { PlacedOrderComponent } from './component/placed-order/placed-order.component';
 import { WishListComponent } from './component/wish-list/wish-list.component';
 import { SearchFilterPipe } from './Pipe/search-filter.pipe';
-import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -73,6 +75,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatRadioModule,
     MatSelectModule,
     NgxPaginationModule,
+    MatBadgeModule,
     
   ],
   providers: [],

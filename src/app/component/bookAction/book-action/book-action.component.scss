@@ -47,3 +47,68 @@ textarea{
     margin-top: 2%;
     margin-bottom: 3%;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Star ratin
+
+    .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left; 
+    margin-bottom: 2%;
+    }
+    
+    .rating > input{
+     display:none;
+    }
+    
+    .rating > label {
+    // width: 1.1em;
+    font-size: 3vw;
+    cursor: pointer;
+    }
+    
+    .rating > label::before{
+    content: "\2605";
+    color: #FFCE00;
+    position: absolute;
+    opacity: 0;
+    }
+    
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+    opacity: 1 !important;
+    }
+    
+    .rating > input:checked ~ label:before{
+    opacity:1;
+    }
+    
+    // .rating:hover > input:checked ~ label:before{ 
+    // opacity: 0.4;
+    //  }
+  
+    .comment{
+        color: #707070;
+    }
+
+    .reviews{
+        margin-bottom: 5%;
+    }

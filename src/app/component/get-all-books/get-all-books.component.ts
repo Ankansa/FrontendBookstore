@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { observable, Observable } from 'rxjs';
 import { BookServiceService } from 'src/app/Service/book/book-service.service';
 import { DataServiceService } from 'src/app/Service/data/data-service.service';
 
@@ -31,9 +32,7 @@ export class GetAllBooksComponent implements OnInit {
       console.log("All books are : ", items);
       this.books=items.data
       this.totalBooks= items.data.length
-
       console.log("Array of All books are : ", this.books);
-
     }, (error: any) => {
       console.log(error);
     })
@@ -54,5 +53,7 @@ export class GetAllBooksComponent implements OnInit {
   newestarrivals() {
     this.books.reverse();
   }
+
+
 
 }

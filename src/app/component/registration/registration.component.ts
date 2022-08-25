@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/Service/Customer/customer.service';
+import { DataServiceService } from 'src/app/Service/data/data-service.service';
 
 
 
@@ -14,7 +16,7 @@ export class RegistrationComponent implements OnInit {
 
   hide = true;
   changeView = false;
-  
+
 
   registerForm: FormGroup;
   loginForm: FormGroup;
@@ -23,7 +25,8 @@ export class RegistrationComponent implements OnInit {
 
 
 
-  constructor(private formBuilder: FormBuilder, private customerService: CustomerService,private snakbar: MatSnackBar) { }
+  constructor(private formBuilder: FormBuilder, private customerService: CustomerService,
+    private snakbar: MatSnackBar, private router: Router, private dataService: DataServiceService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -33,7 +36,7 @@ export class RegistrationComponent implements OnInit {
       mobileNumber: ['', Validators.required]
 
 
-      
+
     });
 
     this.loginForm = this.formBuilder.group({
@@ -41,7 +44,7 @@ export class RegistrationComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
 
-    
+
   }
 
   view() {
@@ -57,7 +60,7 @@ export class RegistrationComponent implements OnInit {
 
   }
 
-  
+
 
   registration() {
     console.log("registration called")
@@ -65,12 +68,13 @@ export class RegistrationComponent implements OnInit {
       console.log("The input registration data is: ", this.registerForm.value)
 
       this.customerService.registration(this.registerForm.value).subscribe((responce: any) => {
-        console.log("The registration responce is :",responce)
+        console.log("The registration responce is :", responce)
 
-        this.snakbar.open('Registration Sucessfull', 'Ok', {duration: 4000
+        this.snakbar.open('Registration Sucessfull', 'Ok', {
+          duration: 4000
         });
-        
-      },(error: any) => {
+
+      }, (error: any) => {
         console.log("The error is: ", error);
         this.snakbar.open(error.error.message, 'Ok', {
         });
@@ -83,12 +87,20 @@ export class RegistrationComponent implements OnInit {
     if (this.loginForm.valid) {
       console.log("The input login data is :", this.loginForm.value)
       this.customerService.login(this.loginForm.value).subscribe((responce: any) => {
-        console.log("The login responce is :",responce)
-        localStorage.setItem('token', responce.data);
-        this.snakbar.open('Login Sucessfull', 'Ok', {duration: 4000
+        console.log("The login responce is :", responce)
+        localStorage.setItem('token', responce.data.brtoken);
+        localStorage.setItem('Name', responce.data.Name);
+
+
+        // this.dataService.username.next(responce.data.Name)
+
+
+        this.router.navigateByUrl('/dashboard/books');
+        this.snakbar.open('Login Sucessfull', 'Ok', {
+          duration: 4000
         });
-        
-      },(error: any) => {
+
+      }, (error: any) => {
         console.log("The error is: ", error);
         this.snakbar.open(error.error.message, 'Ok', {
         });

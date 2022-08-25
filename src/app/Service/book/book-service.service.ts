@@ -24,4 +24,25 @@ export class BookServiceService {
     return this.httpservice.getService('book', true, httpOptions)
 
   }
+  
+  addFeedback(bookId:any,comment:any){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'Authorization': "bearer " + this.token,
+      })
+    }
+    return this.httpservice.postService('users/feedback/'+bookId,comment,true,httpOptions)
+
+  }
+
+  AllFeedback(bookId:any){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+      })
+    }
+    return this.httpservice.getService('users/allfeedback/'+bookId,true,httpOptions)
+
+  }
 }

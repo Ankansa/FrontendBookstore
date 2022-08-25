@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/Service/cart/cart.service';
 import { DataServiceService } from 'src/app/Service/data/data-service.service';
 
 @Component({
@@ -8,19 +9,42 @@ import { DataServiceService } from 'src/app/Service/data/data-service.service';
 })
 export class DashboardComponent implements OnInit {
 
-
-  constructor(private dataService:DataServiceService) { }
+  UserName: any
+  bookcount: number
+  constructor(private dataService: DataServiceService, private cartService: CartService) {
+    // this.dataService.username.subscribe((responce: any) => {
+    //   this.UserName = responce
+      // console.log("Username responce is :", this.UserName)
+    // })
+  }
 
   ngOnInit(): void {
+    console.log("DAshboard on init called")
+    this.cartCount()
+
+    // Sending local storage name to deta service (new subject observable)
+    // this.dataService.username.next(localStorage.getItem("Name"))
+    this.UserName = localStorage.getItem("Name")
   }
 
-  logOut(){
+  logOut() {
     localStorage.removeItem('token')
+    localStorage.removeItem('Name')
+
   }
 
-  newMessage(value:any) {
+  newMessage(value: any) {
     this.dataService.searchMessage(value)
-    console.log("Search bar function calld",value)
+    console.log("Search bar function calld", value)
   }
+
+  cartCount() {
+    console.log("add to viewCart book details is called")
+    return this.cartService.viewCart().subscribe((Response: any) => {
+      console.log("add to viewCart book details is :", Response.data.books)
+      this.bookcount = Response.data.books.length
+    })
+  }
+
 
 }
